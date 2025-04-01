@@ -1,4 +1,4 @@
-package com.netanel.ibihometest.login.utils
+package com.netanel.ibihometest.utils
 
 import android.app.Activity
 import android.view.Gravity
@@ -7,6 +7,8 @@ import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.snackbar.Snackbar
+import com.netanel.ibihometest.localdb.ProductEntity
+import com.netanel.ibihometest.products.data.model.Product
 
 
 /**
@@ -59,3 +61,7 @@ fun LottieAnimationView.hideAnimation() {
     cancelAnimation()
     visibility = android.view.View.GONE
 }
+
+fun Product.toEntity() = ProductEntity(id, title, description, price, thumbnail)
+
+fun ProductEntity.toProduct() = Product(id, title, description, price, thumbnail)
