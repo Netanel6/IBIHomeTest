@@ -10,20 +10,27 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.netanel.ibihometest.databinding.ProductItemBinding
 import com.netanel.ibihometest.products.data.model.Product
 
-class ProductListAdapter : ListAdapter<Product, ProductListAdapter.ProductViewHolder>(DiffCallback) {
+class ProductListAdapter(
+    private val onItemClick: (Product) -> Unit
+) : ListAdapter<Product, ProductListAdapter.ProductViewHolder>(DiffCallback) {
 
     inner class ProductViewHolder(private val binding: ProductItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(product: Product) = with(binding) {
             textTitle.text = product.title
-            textPrice.text = "${product.price}"
+            textPrice.text = "₪${product.price}"
             textDescription.text = product.description
 
             Glide.with(imageThumbnail)
                 .load(product.thumbnail)
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                 .into(imageThumbnail)
+
+            root.setOnClickListener {
+                onItemClick(product)
+            }
+
         }
     }
 

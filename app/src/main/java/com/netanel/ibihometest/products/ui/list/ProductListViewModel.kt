@@ -10,11 +10,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+//SharedV ViewModel
 @HiltViewModel
 class ProductListViewModel @Inject constructor(
     private val repository: DummyJsonRepositoryImpl
 ) : ViewModel() {
 
+    //List
     private val _products = MutableLiveData<List<Product>>()
     val products: LiveData<List<Product>> get() = _products
 
@@ -39,4 +41,14 @@ class ProductListViewModel @Inject constructor(
             }
         }
     }
+
+
+    //Details
+    private val _selectedProduct = MutableLiveData<Product?>()
+    val selectedProduct: LiveData<Product?> get() = _selectedProduct
+
+    fun selectProduct(product: Product) {
+        _selectedProduct.value = product
+    }
+
 }

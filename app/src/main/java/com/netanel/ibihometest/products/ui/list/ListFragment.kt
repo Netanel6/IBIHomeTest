@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.netanel.ibihometest.R
 import com.netanel.ibihometest.databinding.FragmentListBinding
 import com.netanel.ibihometest.login.utils.shouldShow
 import com.netanel.ibihometest.login.utils.showTopSnackbar
@@ -18,7 +21,7 @@ class ListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: ProductListViewModel by viewModels()
+    private val viewModel: ProductListViewModel by activityViewModels()
 
     private lateinit var adapter: ProductListAdapter
 
@@ -40,7 +43,10 @@ class ListFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = ProductListAdapter()
+        adapter = ProductListAdapter { product ->
+            viewModel.selectProduct(product)
+            findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
+        }
         binding.recyclerViewProducts.adapter = adapter
     }
 
