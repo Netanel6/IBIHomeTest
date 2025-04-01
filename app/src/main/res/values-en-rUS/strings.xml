@@ -3,8 +3,10 @@
     <string name="app_name">IBIHomeTest</string>
     <string name="label_list">Products List</string>
     <string name="label_details">Product Details</string>
-    <string name="title_dashboard">Dasboard</string>
+    <string name="label_settings">Settings</string>
     <string name="title_notifications">Notifications</string>
+
+    <!--Login-->
     <string name="username">User Name</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -13,4 +15,9 @@
     <string name="bio_title">"Login With Finger "</string>
     <string name="bio_subTitle">Place Finger To Login</string>
     <string name="bio_negative_button">Cancel</string>
+
+    <!-- Settings -->
+    <string name="change_language">Change Language</string>
+    <string name="dark_mode">Change Theme</string>
+    <string name="logout">Logout</string>
 </resources>
