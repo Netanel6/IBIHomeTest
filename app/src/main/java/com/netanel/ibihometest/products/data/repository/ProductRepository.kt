@@ -8,7 +8,7 @@ import com.netanel.ibihometest.utils.toEntity
 import com.netanel.ibihometest.utils.toProduct
 import javax.inject.Inject
 
-class DummyJsonRepositoryImpl @Inject constructor(
+class ProductRepository @Inject constructor(
     private val api: ProductApi,
     private val dao: ProductDao
 ) : DummyJsonRepository {
@@ -29,8 +29,19 @@ class DummyJsonRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun getFavorites(): List<Product> {
+        return dao.getFavorites().map { it.toProduct() }
+    }
+
+    override suspend fun toggleFavorite(productId: Int, isFavorite: Boolean) {
+        dao.updateFavorite(productId, isFavorite)
+    }
+
 }
 
 interface DummyJsonRepository {
     suspend fun fetchProducts(): List<Product>
+    suspend fun getFavorites(): List<Product>
+    suspend fun toggleFavorite(productId: Int, isFavorite: Boolean)
+
 }

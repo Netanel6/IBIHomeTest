@@ -5,15 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.netanel.ibihometest.products.data.model.Product
-import com.netanel.ibihometest.products.data.repository.DummyJsonRepositoryImpl
+import com.netanel.ibihometest.products.data.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//SharedV ViewModel
+//Shared ViewModel
 @HiltViewModel
 class ProductListViewModel @Inject constructor(
-    private val repository: DummyJsonRepositoryImpl
+    private val repository: ProductRepository
 ) : ViewModel() {
 
     //List
@@ -49,6 +49,25 @@ class ProductListViewModel @Inject constructor(
 
     fun selectProduct(product: Product) {
         _selectedProduct.value = product
+    }
+
+
+    //Favorites
+    private val _favorites = MutableLiveData<List<Product>>()
+    val favorites: LiveData<List<Product>> get() = _favorites
+
+    fun loadFavorites() {
+        viewModelScope.launch {
+            _favorites.value = repository.getFavorites()
+        }
+    }
+
+    fun toggleFavorite(product: Product) {
+        viewModelScope.launch {
+            repository.toggleFavorite(product.id, !product.isFavorite)
+            loadFavorites()
+            loadProducts()
+        }
     }
 
 }

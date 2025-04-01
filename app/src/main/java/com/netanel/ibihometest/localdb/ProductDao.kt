@@ -16,4 +16,11 @@ interface ProductDao {
 
     @Query("DELETE FROM products")
     suspend fun clearAll()
+
+    @Query("SELECT * FROM products WHERE isFavorite = 1")
+    suspend fun getFavorites(): List<ProductEntity>
+
+    @Query("UPDATE products SET isFavorite = :isFavorite WHERE id = :id")
+    suspend fun updateFavorite(id: Int, isFavorite: Boolean)
+
 }
