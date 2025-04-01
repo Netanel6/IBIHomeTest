@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">IBIHomeTest</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">בית</string>
+    <string name="title_dashboard">דשבורד</string>
+    <string name="title_notifications">הודעות</string>
+
+
+    <!-- Login -->
+    <string name="username">שם משתמש</string>
+    <string name="password">סיסמא</string>
+    <string name="login">התחברות</string>
+    <string name="error_message">שגיאה</string>
+    <string name="bio_error_message">שגיאה בזיהוי</string>
+    <string name="bio_title">התחברות עם טביעת אצבע</string>
+    <string name="bio_subTitle">הנח את האצבע כדי להתחבר</string>
+    <string name="bio_negative_button">ביטול</string>
+
 </resources>
