@@ -3,7 +3,7 @@
     <string name="label_list">רשימת מוצרים</string>
     <string name="label_details">פרטי מוצר</string>
     <string name="label_settings">הגדרות</string>
-    <string name="title_notifications">הודעות</string>
+    <string name="label_favorites">מועדפים</string>
 
 
     <!-- Login -->

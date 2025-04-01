@@ -41,10 +41,10 @@ class ListFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = ProductListAdapter { product ->
+        adapter = ProductListAdapter(onItemClick = { product ->
             viewModel.selectProduct(product)
             findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
-        }
+        }, onFavoriteClick = {})
         binding.recyclerViewProducts.adapter = adapter
     }
 
