@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.netanel.ibihometest.R
 import com.netanel.ibihometest.databinding.ProductItemBinding
 import com.netanel.ibihometest.products.data.model.Product
 
 class ProductListAdapter(
-    private val onItemClick: (Product) -> Unit
+    private val onItemClick: ((Product) -> Unit)? = null,
+    private val onFavoriteClick: ((Product) -> Unit)? = null
 ) : ListAdapter<Product, ProductListAdapter.ProductViewHolder>(DiffCallback) {
 
     inner class ProductViewHolder(private val binding: ProductItemBinding) :
@@ -27,11 +29,16 @@ class ProductListAdapter(
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                 .into(imageThumbnail)
 
-            root.setOnClickListener {
-                onItemClick(product)
+            buttonFavorite.setOnClickListener {
+                onFavoriteClick?.invoke(product)
             }
 
+            root.setOnClickListener {
+                onItemClick?.invoke(product)
+            }
         }
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
