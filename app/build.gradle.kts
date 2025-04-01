@@ -73,6 +73,11 @@ dependencies {
     // Lottie
     implementation(libs.lottie.airbnb)
 
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
@@ -82,6 +87,5 @@ dependencies {
     // Glide
     implementation(libs.glide)
     ksp(libs.glide.compiler)
-
 
 }
