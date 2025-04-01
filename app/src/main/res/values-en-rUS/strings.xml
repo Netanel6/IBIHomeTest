@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">IBIHomeTest</string>
-    <string name="title_home">Home</string>
+    <string name="label_list">Products List</string>
     <string name="title_dashboard">Dasboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="username">User Name</string>
