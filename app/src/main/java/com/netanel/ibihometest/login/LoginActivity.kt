@@ -7,6 +7,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.netanel.ibihometest.databinding.ActivityLoginBinding
 import com.netanel.ibihometest.login.ui.AuthStatus
 import com.netanel.ibihometest.login.ui.LoginViewModel
@@ -14,6 +15,7 @@ import com.netanel.ibihometest.login.utils.AuthCallback
 import com.netanel.ibihometest.login.utils.CombinedLoginManager
 import com.netanel.ibihometest.login.utils.LoginManager
 import com.netanel.ibihometest.login.utils.shouldShow
+import com.netanel.ibihometest.login.utils.showTopSnackbar
 import com.netanel.ibihometest.products.MainActivity
 import com.netanel.ibihometest.utils.PrefsHelper
 import dagger.hilt.android.AndroidEntryPoint
@@ -71,10 +73,7 @@ class LoginActivity : AppCompatActivity(), AuthCallback {
 
     private fun showErrorMessage(message: String) {
         progressBar?.shouldShow(false)
-        val toast = Toast.makeText(this, message, Toast.LENGTH_LONG)
-        val yOffset = 150
-        toast.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL, 0, yOffset)
-        toast.show()
+        this.showTopSnackbar(message)
     }
 
     override fun onSuccess() {

@@ -7,7 +7,7 @@
     <string name="username">User Name</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="error_message">Error: %s</string>
+    <string name="error_message">Error</string>
     <string name="bio_error_message">Identification Error</string>
     <string name="bio_title">"Login With Finger "</string>
     <string name="bio_subTitle">Place Finger To Login</string>
