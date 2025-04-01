@@ -67,7 +67,10 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
-    /* Biometric */
+    //Biometric
     implementation(libs.androidx.biometric)
+
+    // Lottie
+    implementation(libs.lottie.airbnb)
 
 }

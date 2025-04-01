@@ -5,6 +5,7 @@ import android.view.Gravity
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -31,4 +32,30 @@ fun Activity.showTopSnackbar(message: String) {
     view.layoutParams = params
 
     snackbar.show()
+}
+
+fun LottieAnimationView.showLoading() {
+    setAnimation("loading.json")
+    visibility = android.view.View.VISIBLE
+    playAnimation()
+}
+
+fun LottieAnimationView.showSuccess() {
+    setAnimation("correct.json")
+    visibility = android.view.View.VISIBLE
+    playAnimation()
+}
+
+fun LottieAnimationView.showError() {
+    setAnimation("wrong.json")
+    visibility = android.view.View.VISIBLE
+    playAnimation()
+    postDelayed({
+        hideAnimation()
+    }, 2000)
+}
+
+fun LottieAnimationView.hideAnimation() {
+    cancelAnimation()
+    visibility = android.view.View.GONE
 }
