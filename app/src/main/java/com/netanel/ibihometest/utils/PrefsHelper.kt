@@ -12,6 +12,8 @@ object PrefsHelper {
     private var isInitialized = false
 
     const val PREF_IS_LOGGED_IN = "is_logged_in"
+    const val DARK_MODE = "dark_mode"
+    const val LANG = "lang"
 
     fun init(context: Context) {
         if (isInitialized) {
@@ -53,6 +55,19 @@ object PrefsHelper {
         return sharedPreferences.getBoolean(key, defaultValue)
     }
 
+
+
+    fun isDarkMode(): Boolean = sharedPreferences.getBoolean(DARK_MODE, false)
+
+    fun setDarkMode(enabled: Boolean) {
+        sharedPreferences.edit().putBoolean(DARK_MODE, enabled).apply()
+    }
+
+    fun setLanguage(lang: String) {
+        sharedPreferences.edit().putString(LANG, lang).apply()
+    }
+
+    fun getLanguage(): String = sharedPreferences.getString(LANG, "en") ?: "en"
 
     fun remove(key: String) {
         checkInitialized()

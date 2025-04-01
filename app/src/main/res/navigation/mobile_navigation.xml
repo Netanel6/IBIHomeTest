@@ -12,24 +12,25 @@
         tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/navigation_details" />
     </fragment>
 
     <fragment
-        android:id="@+id/detailsFragment"
+        android:id="@+id/navigation_details"
         android:name="com.netanel.ibihometest.products.ui.list.description.DetailsFragment"
         android:label="@string/label_details"
         tools:layout="@layout/fragment_details" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.netanel.ibihometest.products.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_settings"
+        android:name="com.netanel.ibihometest.products.ui.settings.SettingsFragment"
+        android:label="@string/label_settings" />
+
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.netanel.ibihometest.products.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
 </navigation>
