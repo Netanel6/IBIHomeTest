@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">IBIHomeTest</string>
     <string name="label_list">רשימת מוצרים</string>
+    <string name="label_details">פרטי מוצר</string>
     <string name="title_dashboard">דשבורד</string>
     <string name="title_notifications">הודעות</string>
 
