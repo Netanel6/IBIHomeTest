@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IBIHomeTest</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dasboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="error_message">Error: %s</string>
+    <string name="bio_error_message">Identification Error</string>
+    <string name="bio_title">"Login With Finger "</string>
+    <string name="bio_subTitle">Place Finger To Login</string>
+    <string name="bio_negative_button">Cancel</string>
+</resources>
