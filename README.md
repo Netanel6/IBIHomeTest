@@ -5,6 +5,16 @@ Hope you enjoy reviewing the work I did manage to complete. (but it does save to
 
 ---
 
+## 🚀 Project Architecture
+
+The app uses **two separate activities**:
+- `LoginActivity` for handling all authentication and biometric logic
+- `MainActivity` for displaying the app content with bottom navigation
+
+This was done intentionally for **security purposes** (avoiding unauthorized access to the main app via back navigation) and to maintain **separation of concerns** between the login flow and the rest of the application.
+
+---
+
 ## ✨ Features
 
 - **Login with biometric support** (Fingerprint)
