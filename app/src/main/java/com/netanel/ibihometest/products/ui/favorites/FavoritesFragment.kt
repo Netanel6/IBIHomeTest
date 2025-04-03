@@ -30,9 +30,7 @@ class FavoritesFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        adapter = ProductListAdapter(onFavoriteClick = {
-            viewModel.toggleFavorite(it)
-        }, onItemClick = {})
+        adapter = ProductListAdapter(onFavoriteClick = {}, onItemClick = {})
 
         binding.recyclerViewFavorites.adapter = adapter
 
@@ -48,3 +46,4 @@ class FavoritesFragment : Fragment() {
         _binding = null
     }
 }
+ 
